@@ -1,0 +1,121 @@
+body{
+    background: #6d6875;
+    color: #ffcdb2;
+    font: palatino
+  }
+  
+  .container{
+      padding: 10px 100;
+  }
+  
+  #categories{
+      padding: 20px 0;
+  }
+  
+  .category-list{
+      padding-left: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 20px;
+      margin-top: 50px;
+  }
+  
+  .category{
+      border-radius: 10px;
+      width: 250px;
+      height: 250px;
+      position: relative;
+      overflow: hidden;
+  }
+  
+  .category img{
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+  }
+  
+  .image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  
+  .overlay{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      background-color: #ffcdb2;
+      transition: .5s ease;
+    }
+    
+    .category:hover .overlay{
+      opacity: 0.75;
+    }
+    
+    .text {
+      color: #fffced;
+      font-size: 35px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+  
+  
+  
+  .parallax1 {
+      /* The image used */
+      background-image: url("https://i.pinimg.com/564x/7c/52/c4/7c52c44b7633183566eb07778ac554bd.jpg");
+  
+      /* Full height */
+      height: 600px;
+  
+      /* Create the parallax scrolling effect */
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  
+  
+  
+  /* CSS */
+  .button {
+    background-color: #ffcdb2;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #6d6875;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .button-1:hover,
+  .button-1:focus {
+    background-color: #ffcdb2;
+  }

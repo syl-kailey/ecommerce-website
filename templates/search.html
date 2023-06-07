@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search Page</title>
+    <link href="/static/styles.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <center>
+    <h1>Search</h1><br>
+    <p>Search for an album. If the album you want is in our catalog, enter the album title into the add to cart form.</p><br>
+      <br><br
+    {% if member %}
+      <a href = "/m_products">
+              <button type = "button" class = "button">Return to Products</button><br><br>
+      </a>
+      <a href = "/cart">
+              <button type = "button" class = "button">View Cart</button><br><br>
+      </a>
+    {% else %}
+        <a href = "/g_products">
+              <button type = "button" class = "button">Return to Products</button><br><br>
+      </a>
+    {% endif %}
+    <h3>Search by Album</h3>
+    <form method="POST" action="/search">
+      <label>Album:</label>
+      <input type = "text" name = "product_name">
+      <button type = "submit" class = "button">Search</button>
+      {% if error %}
+        <h3> {{ error }} </h3>
+      {% endif %}
+    </form>
+    <br><br><br>
+      <h3>Search by Artist</h3>
+    <form method="POST" action="/search">
+      <label>Artist:</label>
+      <input type = "text" name = "category_name">
+      <button type = "submit" class = "button">Search</button>
+      {% if error %}
+        <h3> {{ error }} </h3>
+      {% endif %}
+    </form>
+    <br><br><br>
+      
+    {% if show_result %}
+      <h3>Search Results</h3>
+      {% if product %}
+        <button class = "button">{{ product["name"] }} - {{ product["category"] }} </button>
+      {% else %}
+        <h3>{{ error }}</h3>
+      {% endif %}
+    {% endif %}
+
+    {% if show_results %}
+      <h3>Search Results</h3>
+      {% if products %}
+        {% for product in products %}
+        <button class = "button">{{ product["name"] }} - {{ product["category"] }} </button>
+        {% endfor %}
+      {% else %}
+        <h3>{{ error }}</h3>
+      {% endif %}
+    {% endif %}
+
+    {% if member %}
+    <br><br><br>
+      <h3>Add to Cart</h3>
+      <form action = "/add_to_cart" method = "POST">
+      Product Name: <input type = "text" name = "product" required/><br>
+      Quantity: <input type = "number" name = "quantity" value = "1" required/><br>
+      <br>
+      <input type = "submit" class = "button" value = "Add to Cart">
+    </form>
+    {% endif %}
+    </center>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cart</title>
+  <link href="/static/styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <center>
+    <h1>Cart</h1>
+    <a href = "/m_products">
+            <button type = "button" class = "button">Return to Products</button><br><br>
+    </a>
+    <a href = "/view_orders">
+            <button type = "button" class = "button">View Previous Orders</button><br><br>
+    </a>
+    {% if cart %}
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Edit Quantity</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart %}
+        <tr>
+          <td>{{ item.product }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>
+            <form action = "/edit_cart" method = "POST">
+              Product Name: <input type = "text" name = "product" value = "{{ item.product }}" required/><br>
+              Quantity: <input type = "number" name = "quantity" value = "{{ item.quantity }}" required/><br>
+              <input type = "submit" class = "button" value = "Edit">
+            </form>
+          </td>
+          <td>
+            <form action = "/remove_from_cart" method = "POST">
+              Product Name: <input type = "text" name = "product" value = "{{ item.product }}" required/><br>
+              <input type = "submit" class = "button" value = "Delete">
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+  <a href = "/checkout">
+      <button type = "button" class = "button">Check Out</button><br><br>
+    </a>
+    </center>
+</body>
+</html>
+

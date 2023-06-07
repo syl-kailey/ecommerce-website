@@ -1,0 +1,23 @@
+<DOCTYPE! HTML>
+<html>
+  <head>
+    <title>Check Out</title>
+    <link href="/static/styles.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <center>
+    <h1>Check Out</h1>
+    <form action = " /checkout " method = "POST">
+      <h3> Total : ${{ total }} </h3>
+      <br>
+      <input type = "submit" class = "button" value = "Order">
+      {% if error %}
+        <h3> {{ error }} </h3>
+      {% endif %}
+      </form>
+    <a href = "/cart">
+            <button type = "button" class = "button">Return to Cart</button><br><br>
+    </a>
+    </center>
+  </body>
+</html>
